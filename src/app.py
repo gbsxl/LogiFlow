@@ -181,25 +181,25 @@ def get_base_template(content, active_page=''):
 </head>
 <body>
     <div class="container">
-        {"" if "user_id" not in session else f'''
+        ''' + ("" if "user_id" not in session else f'''
         <div class="header">
             <h1>Sistema de Controle de Estoque</h1>
             <div>
                 Usuário: <strong>{session.get("user_name", "")}</strong>
-                {"<span style=\"color: #28a745;\">(Admin)</span>" if session.get("is_admin") else ""}
+                ''' + ('<span style="color: #28a745;">(Admin)</span>' if session.get("is_admin") else "") + f'''
                 <a href="{url_for("logout")}" class="btn btn-danger">Sair</a>
             </div>
         </div>
 
         <div class="nav">
-            <a href="{url_for("dashboard")}" {"class=\"active\"" if active_page == "dashboard" else ""}>Produtos</a>
-            <a href="{url_for("movimentacoes")}" {"class=\"active\"" if active_page == "movimentacoes" else ""}>Movimentações</a>
-            {f'<a href="{url_for("usuarios")}" {"class=\"active\"" if active_page == "usuarios" else ""}>Usuários</a>' if session.get("is_admin") else ""}
-            <a href="{url_for("relatorio")}" {"class=\"active\"" if active_page == "relatorio" else ""}>Relatórios</a>
+            <a href="{url_for("dashboard")}" ''' + ('class="active"' if active_page == "dashboard" else "") + f'''>Produtos</a>
+            <a href="{url_for("movimentacoes")}" ''' + ('class="active"' if active_page == "movimentacoes" else "") + f'''>Movimentações</a>
+            ''' + (f'<a href="{url_for("usuarios")}" ' + ('class="active"' if active_page == "usuarios" else "") + '>Usuários</a>' if session.get("is_admin") else "") + f'''
+            <a href="{url_for("relatorio")}" ''' + ('class="active"' if active_page == "relatorio" else "") + f'''>Relatórios</a>
         </div>
-        '''}
+        ''') + '''
 
-        {"".join([f'<div class="alert alert-{"error" if category == "error" else "success"}">{message}</div>' for category, message in get_flashed_messages(with_categories=True)])}
+        ''' + "".join([f'<div class="alert alert-{"error" if category == "error" else "success"}">{message}</div>' for category, message in get_flashed_messages(with_categories=True)]) + f'''
 
         {content}
     </div>
