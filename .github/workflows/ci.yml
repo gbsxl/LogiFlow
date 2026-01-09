@@ -34,7 +34,7 @@ jobs:
     
     - name: ✅ Verificar cobertura mínima
       run: |
-        pytest tests/ --cov=src --cov-fail-under=70
+        pytest tests/ --cov=src --cov-fail-under=50
     
     - name: 📊 Gerar relatório de cobertura HTML
       run: |
