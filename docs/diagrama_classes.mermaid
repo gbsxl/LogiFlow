@@ -1,0 +1,41 @@
+```mermaid
+classDiagram
+    class Usuario {
+        +int id
+        +string nome
+        +string email
+        +string senha_hash
+        +bool eh_administrador
+        +bool ativo
+        +datetime criado_em
+        +fazer_login()
+        +verificar_permissoes()
+    }
+
+    class Produto {
+        +int id
+        +string nome
+        +float preco
+        +int quantidade
+        +int quantidade_minima
+        +datetime criado_em
+        +datetime atualizado_em
+        +verificar_estoque()
+        +atualizar_quantidade()
+    }
+
+    class Movimentacao {
+        +int id
+        +int produto_id
+        +int usuario_id
+        +string tipo_movimentacao
+        +int quantidade
+        +string observacoes
+        +datetime data_movimentacao
+        +registrar()
+        +validar()
+    }
+
+    Usuario "1" -- "N" Movimentacao : realiza
+    Produto "1" -- "N" Movimentacao : sofre
+```
