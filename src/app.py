@@ -82,7 +82,7 @@ def create_admin_user():
 
 
 
-create_admin_user()
+
 
 
 def enviar_notificacao_estoque_baixo(produto):
@@ -857,4 +857,5 @@ if __name__ == '__main__':
     print("✅ Sistema iniciado com sucesso!")
     print("=" * 60)
 
+    create_admin_user()
     app.run(debug=True, host='0.0.0.0', port=1531)
