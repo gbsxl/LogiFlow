@@ -100,6 +100,14 @@ LogiFlow/
 - pip (gerenciador de pacotes Python)
 - Git
 
+### Verificar Instalação do Python
+
+```bash
+# Verificar versão do Python
+python3 --version
+# Deve exibir: Python 3.10.x ou superior
+```
+
 ### Instalação e Execução
 
 ```bash
@@ -108,11 +116,13 @@ git clone https://github.com/gbsxl/LogiFlow.git
 cd LogiFlow
 
 # 2. Crie um ambiente virtual
-python -m venv venv
+python3 -m venv venv
 
 # 3. Ative o ambiente virtual
-# Windows:
-venv\\Scripts\\activate
+# Windows (CMD):
+venv\Scripts\activate
+# Windows (PowerShell):
+.\venv\Scripts\Activate.ps1
 # Linux/Mac:
 source venv/bin/activate
 
@@ -123,11 +133,20 @@ pip install -r requirements.txt
 python src/app.py
 ```
 
+> **💡 Dica**: Após ativar o ambiente virtual, os comandos `python` e `pip` apontarão automaticamente para as versões do venv.
+
 ### Acessar o Sistema
 
 - **URL**: http://localhost:1531
 - **Usuário padrão**: admin@sistema.com
 - **Senha padrão**: admin123
+
+### Comandos Rápidos (Linux/Mac)
+
+```bash
+# Executar tudo de uma vez (após a primeira instalação)
+source venv/bin/activate && python src/app.py
+```
 
 ---
 
