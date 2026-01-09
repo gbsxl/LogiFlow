@@ -278,14 +278,14 @@ def dashboard():
         db.close()
 
     produtos_html = ''.join([f'''
-        <tr {"class=\"estoque-baixo\"" if produto.quantidade <= produto.quantidade_minima else ""}>
+        <tr {'class="estoque-baixo"' if produto.quantidade <= produto.quantidade_minima else ""}>
             <td>{produto.id}</td>
             <td>{produto.nome}</td>
             <td>R$ {produto.preco:.2f}</td>
             <td>{produto.quantidade}</td>
             <td>{produto.quantidade_minima}</td>
             <td>
-                {"<span style=\"color: #856404; font-weight: bold;\">BAIXO</span>" if produto.quantidade <= produto.quantidade_minima else "<span style=\"color: #28a745; font-weight: bold;\">OK</span>"}
+                {'<span style="color: #856404; font-weight: bold;">BAIXO</span>' if produto.quantidade <= produto.quantidade_minima else '<span style="color: #28a745; font-weight: bold;">OK</span>'}
             </td>
             <td>
                 <a href="{url_for("entrada_estoque", produto_id=produto.id)}" class="btn btn-success">Entrada</a>
